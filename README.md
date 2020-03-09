@@ -7,7 +7,7 @@ Ruby gem wrapper for sending sms using wavecell.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'wavecell_sms'
+gem 'wavecell_otp_and_sms'
 ```
 
 And then execute:
@@ -23,22 +23,22 @@ Or install it yourself as:
   ```ruby
     initializer.rb
     # Initiate Wavecell SMS configuration by putting sub account and api key
-    WavecellSms.configure do |config|
+    WavecellOtpAndSms.configure do |config|
       config.api_key = 'api_key'
       config.sub_account = 'sub_account'
     end
-    
+
     # Compose your message to be sent to users
-    @config = WavecellSms::SendSms.new(
+    @config = WavecellOtpAndSms::SendSms.new(
       source: 'Name of Source e.g ACME Inc.',
       destination: 'Mobile Number',
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       encoding: 'AUTO'
     )
-    
+
     # Call .send to send the SMS
     @config.send
-    
+
   ```
 
 ## Development
@@ -58,3 +58,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the WavecellSms project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wavecell_sms/blob/master/CODE_OF_CONDUCT.md).
+# wavecell_otp_and_sms
