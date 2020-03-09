@@ -1,6 +1,6 @@
 # Wavecell
 
-Ruby gem wrapper for sending sms using wavecell.
+Ruby gem wrapper for sending sms, generate OTP, verify OTP using wavecell.
 
 ## Installation
 
