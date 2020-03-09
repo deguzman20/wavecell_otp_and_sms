@@ -59,3 +59,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 Everyone interacting in the WavecellSms project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wavecell_sms/blob/master/CODE_OF_CONDUCT.md).
 # wavecell_otp_and_sms
+# wavecell_otp_and_sms
