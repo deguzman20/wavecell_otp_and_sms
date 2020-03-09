@@ -32,7 +32,7 @@ Or install it yourself as:
     @sms_config = WavecellOtpAndSms::SendSms.new(
       source: 'Name of Source e.g ACME Inc.',
       destination: 'Mobile Number',
-      text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      text: 'Lorem Ipsum is simply dummy text',
       encoding: 'AUTO'
     )
 
