@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "API integration for processing bulk SMS with wavecell."
   spec.description   = "Process your SMS notifications using Wavecell API"
-  spec.homepage      = "https://github.com/deguzman20/wavecell_otp_sms"
+  spec.homepage      = "https://github.com/deguzman20/wavecell_otp_and_sms"
   spec.license       = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
