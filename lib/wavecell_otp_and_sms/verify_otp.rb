@@ -19,8 +19,8 @@ module WavecellOtpAndSms
     private
       # Construct API using the parameters and initial configuration
       def generate_url
-        api_key = WavecellSms.configuration.api_key
-        sub_account = WavecellSms.configuration.sub_account
+        api_key = WavecellOtpAndSms.configuration.api_key
+        sub_account = WavecellOtpAndSms.configuration.sub_account
         details = [destination, country_code, product_name]
         url = "https://api.wavecell.com/otp/v1/#{sub_account}/#{uid}?code=#{code}" + "?#{query_string}"
         HTTParty.post(url.to_str,
