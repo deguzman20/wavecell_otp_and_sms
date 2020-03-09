@@ -24,8 +24,8 @@ module WavecellOtpAndSms
         sub_account = WavecellOtpAndSms.configuration.sub_account
         details = [destination, country_code, product_name]
         parameters = {
-          source: source,
           destination: destination,
+          country_code: country_code
           product_name: product_name
         }
         query_string = parameters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")
