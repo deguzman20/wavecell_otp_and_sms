@@ -25,7 +25,7 @@ module WavecellOtpAndSms
         details = [destination, country_code, product_name]
         parameters = {
           destination: destination,
-          country_code: country_code
+          country_code: country_code,
           product_name: product_name
         }
         query_string = parameters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")
