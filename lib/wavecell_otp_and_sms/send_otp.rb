@@ -1,18 +1,17 @@
 require 'httparty'
 
-module WavecellSms
-  class SendSms
+module WavecellOtpAndSms
+  class SendOtp
     include HTTParty
-    attr_accessor :source, :destination, :text, :encoding
+    attr_accessor :destination, :country_code, :product_name
 
     # Initialize SMS parameters to send message to api
     def initialize(options = {})
-      @source = options[:source]
       @destination = options[:destination]
-      @text = options[:text]
-      @encoding = options[:encoding]
+      @country_code = options[:country_code]
+      @product_name = options[:product_name]
     end
-    
+
     # Call this to generate url for the api calls
     def send
       generate_url
@@ -23,16 +22,15 @@ module WavecellSms
       def generate_url
         api_key = WavecellSms.configuration.api_key
         sub_account = WavecellSms.configuration.sub_account
-        details = [source, destination, text, encoding]
+        details = [destination, country_code, product_name]
         parameters = {
           source: source,
           destination: destination,
-          text: text,
-          encoding: encoding
+          product_name: product_name
         }
         query_string = parameters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")
-        url = "https://api.wavecell.com/sms/v1/#{sub_account}/single" + "?#{query_string}"
-        HTTParty.post(url.to_str, 
+        url = "https://api.wavecell.com/otp/v1/#{sub_account}" + "?#{query_string}"
+        HTTParty.post(url.to_str,
         :body => parameters.to_json,
         :headers => {
           "Content-Type" => "application/json",

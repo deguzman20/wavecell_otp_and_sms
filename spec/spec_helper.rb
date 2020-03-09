@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "wavecell_sms"
+require "wavecell_otp_and_sms"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

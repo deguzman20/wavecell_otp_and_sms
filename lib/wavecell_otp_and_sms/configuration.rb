@@ -1,4 +1,4 @@
-module WavecellSms
+module WavecellOtpAndSms
   class Configuration
     attr_accessor :api_key, :sub_account
 

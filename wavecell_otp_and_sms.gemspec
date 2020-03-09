@@ -1,16 +1,16 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "wavecell_sms/version"
+require "wavecell_otp_and_sms/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "wavecell_sms"
-  spec.version       = WavecellSms::VERSION
-  spec.authors       = ["Arman Gian Argamosa"]
-  spec.email         = ["argamosa.gian@gmail.com"]
+  spec.name          = "wavecell_otp_and_sms"
+  spec.version       = WavecellOtpAndSms::VERSION
+  spec.authors       = ["Alejandro De Guzman"]
+  spec.email         = ["alejandrogacumadeguzman@gmail.com"]
 
   spec.summary       = "API integration for processing bulk SMS with wavecell."
   spec.description   = "Process your SMS notifications using Wavecell API"
-  spec.homepage      = "https://github.com/gianargamosa/wavecell_sms"
+  spec.homepage      = "https://github.com/deguzman20/wavecell_otp_sms"
   spec.license       = "MIT"
 
   spec.metadata["homepage_uri"] = spec.homepage
