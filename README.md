@@ -29,15 +29,28 @@ Or install it yourself as:
     end
 
     # Compose your message to be sent to users
-    @config = WavecellOtpAndSms::SendSms.new(
+    @sms_config = WavecellOtpAndSms::SendSms.new(
       source: 'Name of Source e.g ACME Inc.',
       destination: 'Mobile Number',
       text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       encoding: 'AUTO'
     )
 
+    # Generate OTP
+    @send_otp_config = WavecellOtpAndSms::SendOtp.new(
+      destination: 'Mobile Number',
+      country_code: 'PH',
+      product_name: 'Lorem Ipsum'
+    )
+
+    # Verify using UID and verification
+    @verify_otp_config = WavecellOtpAndSms::VerifyOtp.new(
+      uid: '92849238423',
+      code: '4454'
+    )
+
     # Call .send to send the SMS
-    @config.send
+    @sms_config.send
 
   ```
 
@@ -57,5 +70,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the WavecellSms project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/wavecell_sms/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the WavecellSms project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/deguzman20/wavecell_otp_with_sms/blob/master/CODE_OF_CONDUCT.md).
 # wavecell_otp_and_sms

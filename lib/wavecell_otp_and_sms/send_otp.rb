@@ -5,7 +5,7 @@ module WavecellOtpAndSms
     include HTTParty
     attr_accessor :destination, :country_code, :product_name
 
-    # Initialize SMS parameters to send message to api
+    # Initialize OTP parameters
     def initialize(options = {})
       @destination = options[:destination]
       @country_code = options[:country_code]

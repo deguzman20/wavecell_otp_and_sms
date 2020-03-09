@@ -5,7 +5,7 @@ module WavecellOtpAndSms
     include HTTParty
     attr_accessor :uid, :code
 
-    # Initialize SMS parameters to send message to api
+    # Initialize Verification for OTP parameters
     def initialize(options = {})
       @uid = options[:uid]
       @code = options[:code]
