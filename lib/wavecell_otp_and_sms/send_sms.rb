@@ -1,6 +1,4 @@
 require 'httparty'
-require 'net/http'
-require 'uri'
 
 module WavecellOtpAndSms
   class SendSms
@@ -32,22 +30,14 @@ module WavecellOtpAndSms
           text: text,
           encoding: encoding
         }
-
-        uri = URI.parse("https://api.wavecell.com/sms/v1/#{sub_account}/single")
-        request = Net::HTTP::Post.new(uri)
-        user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.86 Safari/537.36'
-        request.initialize_http_header({"User-Agent" => user_agent})
-        request.content_type = "application/json"
-        request["Authorization"] = "Bearer #{api_key}"
-        request.body = "${ \"source\": \"#{source}\", \"destination\": \"#{destination}\", \"text\": \"#{text}\", \"encoding\": \"#{encoding}\" }"
-
-        req_options = {
-          use_ssl: uri.scheme == "https",
-        }
-
-        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-          http.request(request)
-        end
+        query_string = parameters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")
+        url = "https://api.wavecell.com/sms/v1/#{sub_account}/single" + "?#{query_string}"
+        HTTParty.post(url.to_str,
+        :body => parameters.to_json,
+        :headers => {
+          "Content-Type" => "application/json",
+          "Authorization" => "Bearer #{api_key}"
+        })
       end
 
   end

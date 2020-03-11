@@ -15,7 +15,7 @@ RSpec.describe WavecellOtpAndSms do
       encoding: ''
     )
 
-    @otp_config = WavecellWavecellOtpAndSmsSms::SendSms.new(
+    @otp_config = WavecellOtpAndSms::SendOtp.new(
       destination: '',
       country_code: '',
       product_name: ''
