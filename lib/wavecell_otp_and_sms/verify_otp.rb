@@ -7,8 +7,8 @@ module WavecellOtpAndSms
 
     # Initialize Verification for OTP parameters
     def initialize(uid: nil, code: nil)
-      @uid = options[:uid]
-      @code = options[:code]
+      @uid = uid
+      @code = code
     end
 
     # Call this to generate url for the api calls
@@ -23,7 +23,6 @@ module WavecellOtpAndSms
         sub_account = WavecellOtpAndSms.configuration.sub_account
         url = "https://api.wavecell.com/otp/v1/#{sub_account}/#{uid}?code=#{code}"
         HTTParty.post(url.to_str,
-        :body => parameters.to_json,
         :headers => {
           "Content-Type" => "application/json",
           "Authorization" => "Bearer #{api_key}"
