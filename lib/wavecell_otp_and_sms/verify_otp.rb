@@ -22,7 +22,7 @@ module WavecellOtpAndSms
         api_key = WavecellOtpAndSms.configuration.api_key
         sub_account = WavecellOtpAndSms.configuration.sub_account
         details = [uid, code]
-        url = "https://api.wavecell.com/otp/v1/#{sub_account}/#{uid}?code=#{code}" + "?#{query_string}"
+        url = "https://api.wavecell.com/otp/v1/#{sub_account}/#{uid}?code=#{code}"
         HTTParty.post(url.to_str,
         :body => parameters.to_json,
         :headers => {
