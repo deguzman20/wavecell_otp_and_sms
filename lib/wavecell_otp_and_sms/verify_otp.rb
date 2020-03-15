@@ -5,10 +5,10 @@ module WavecellOtpAndSms
     include HTTParty
     attr_accessor :uid, :code
 
-    # Initialize Verification for OTP parameters
-    def initialize(uid: nil, code: nil)
-      @uid = uid
-      @code = code
+    # Initialize OTP parameters
+    def initialize(options = {})
+      @uid = options[:uid]
+      @code = options[:code]
     end
 
     # Call this to generate url for the api calls
@@ -21,12 +21,14 @@ module WavecellOtpAndSms
       def generate_url
         api_key = WavecellOtpAndSms.configuration.api_key
         sub_account = WavecellOtpAndSms.configuration.sub_account
+        details = [uid, code]
         parameters = {
           uid: uid,
           code: code
         }
+        query_string = parameters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")
         url = "https://api.wavecell.com/otp/v1/#{sub_account}/#{uid}?code=#{code}"
-        HTTParty.post(url.to_str,
+        HTTParty.get(url.to_str,
         :body => parameters.to_json,
         :headers => {
           "Content-Type" => "application/json",
