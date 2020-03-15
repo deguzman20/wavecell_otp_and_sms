@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wavecell_otp_and_sms (1.0.7)
+    wavecell_otp_and_sms (1.0.8)
 
 GEM
   remote: https://rubygems.org/
@@ -21,7 +21,7 @@ GEM
       rspec-mocks (~> 3.9.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
-    rspec-expectations (3.9.0)
+    rspec-expectations (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-mocks (3.9.1)
