@@ -23,21 +23,7 @@ module WavecellOtpAndSms
       def generate_url
         api_key = WavecellOtpAndSms.configuration.api_key
         sub_account = WavecellOtpAndSms.configuration.sub_account
-        details = [source, destination, text, encoding]
-        parameters = {
-          source: source,
-          destination: destination,
-          text: text,
-          encoding: encoding
-        }
-        query_string = parameters.to_a.map { |x| "#{x[0]}=#{x[1]}" }.join("&")
-        url = "https://api.wavecell.com/sms/v1/#{sub_account}/single" + "?#{query_string}"
-        HTTParty.post(url.to_str,
-        :body => parameters.to_json,
-        :headers => {
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{api_key}"
-        })
+        puts `curl -X POST https://api.wavecell.com/sms/v1/#{sub_account}/single -H "Authorization: Bearer #{api_key}" -H "Content-Type:  application/json" -d $'{ "source": "#{source}", "destination": "+63#{destination}", "text": "#{text}", "encoding": "#{encoding}" }'`
       end
 
   end
