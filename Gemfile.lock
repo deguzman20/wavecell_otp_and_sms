@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    wavecell_otp_and_sms (1.0.9)
+    wavecell_otp_and_sms (1.1.0)
 
 GEM
   remote: https://rubygems.org/
